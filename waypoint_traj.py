@@ -9,17 +9,12 @@ class WaypointTraj(object):
         This is the constructor for the Trajectory object. A fresh trajectory
         object will be constructed before each mission. For a waypoint
         trajectory, the input argument is an array of 3D destination
-        coordinates. You are free to choose the times of arrival and the path
-        taken between the points in any way you like.
-
-        You should initialize parameters and pre-compute values such as
-        polynomial coefficients here.
+        coordinates.
 
         Inputs:
             points, (N, 3) array of N waypoint coordinates in 3D
         """
 
-        # STUDENT CODE HERE
         self.N = points.shape[0]
         self.points = points
 
