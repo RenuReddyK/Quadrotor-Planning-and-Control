@@ -18,15 +18,15 @@ Map 1: Maze
 
 Map 2: Over under
 
-
+|![3D_Path](https://user-images.githubusercontent.com/68454938/223794198-c38b119d-b303-4dde-9edd-3a9c1fa4e6fa.png)
 |:--:| 
-| *Map 1* |
+| *Map 2* |
 
-
+|![A*_Path,_Waypoints,_and_Trajectory](https://user-images.githubusercontent.com/68454938/223794311-36047824-d0c1-4fd1-91ef-4edddb4ea252.png)
 |:--:|
 | *A*Path, Waypoints, and Trajectory*|
 
-
+|![Position_vs_Time](https://user-images.githubusercontent.com/68454938/223794358-f36a211d-0289-4159-8b68-d1a80f3a3456.png)
 |:--:| 
 | *Position vs Time*|
 
