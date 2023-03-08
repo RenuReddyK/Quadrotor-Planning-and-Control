@@ -6,9 +6,28 @@ Map 1: Maze
 |:--:| 
 | *Map 1* |
 
+|![A*_Path,_Waypoints,_and_Trajectory](https://user-images.githubusercontent.com/68454938/223792788-a33ed027-c2f8-45ee-bb62-15228591c141.png)
+|:--:|
+| *A*Path, Waypoints, and Trajectory*|
+
+|![Position_vs_Time](https://user-images.githubusercontent.com/68454938/223792843-f841a385-2443-42e3-babf-cc44db329322.png)
+|:--:| 
+| *Position vs Time*|
 
 
 Map 2: Over under
+
+
+|:--:| 
+| *Map 1* |
+
+
+|:--:|
+| *A*Path, Waypoints, and Trajectory*|
+
+
+|:--:| 
+| *Position vs Time*|
 
 Map 3: Window
 
@@ -17,11 +36,9 @@ Map 3: Window
 |:--:|
 | *Map 3*|
 
-
 |![A*_Path,_Waypoints,_and_Trajectory](https://user-images.githubusercontent.com/68454938/223791193-6b9f3b0d-b0e1-4967-8c17-e8ef0e90144b.png)
 |:--:|
 | *A*Path, Waypoints, and Trajectory*|
-
 
 |![Position_vs_Time](https://user-images.githubusercontent.com/68454938/223791214-f915aa99-6648-4de9-81f5-0a609507b337.png)
 |:--:|
