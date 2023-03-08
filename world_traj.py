@@ -3,20 +3,13 @@ import numpy as np
 from .graph_search import graph_search
 
 class WorldTraj(object):
-    """
-
-    """
 
 
     def __init__(self, world, start, goal):
         """
         This is the constructor for the trajectory object. A fresh trajectory
         object will be constructed before each mission. For a world trajectory,
-        the input arguments are start and end positions and a world object. You
-        are free to choose the path taken in any way you like.
-
-        You should initialize parameters and pre-compute values such as
-        polynomial coefficients here.
+        the input arguments are start and end positions and a world object. 
 
         Parameters:
             world, World object representing the environment obstacles
@@ -24,7 +17,6 @@ class WorldTraj(object):
             goal,  xyz position in meters, shape=(3,)
 
         """
-
        
         self.resolution = np.array([0.1, 0.1, 0.1])
         self.margin = 0.5
@@ -36,7 +28,6 @@ class WorldTraj(object):
     # Remove collinear points 
     def sparse_waypoints(path):
         new_waypoints = []
-        # new_waypoints.append(path[0].tolist())
         for i in range(1,path.shape[0]-1):
                 x1,y1,z1 = path[i-1]
                 x2,y2,z2 = path[i]
@@ -47,8 +38,8 @@ class WorldTraj(object):
                 if directional_vec != 1:
                     if path[i].tolist() not in new_waypoints:
                         new_waypoints.append(path[i].tolist())
-
         new_waypoints = new_waypoints[::2]
+        
         # New waypoints
         if new_waypoints[-1] != path[-1].tolist():
             new_waypoints.append(path[-1].tolist())
@@ -81,17 +72,14 @@ class WorldTraj(object):
         x_ddddot = np.zeros((3,))
         yaw = 0
         yaw_dot = 0
-
-        # STUDENT CODE HERE
        
         self.points = self.path 
-        # print(self.points)
-        # print(len(self.points))
         N = self.points.shape[0]
 
         I = np.zeros((N-1,3))
         D = np.zeros((N-1,1))
-        v = 2.3
+        
+        v = 3.1
         for i in range(N-1):
             # Unit vectors describing the direction of travel for each segment
             I[i, :] = (self.points[i+1,:]-self.points[i,:])/(np.linalg.norm(self.points[i+1,:]-self.points[i,:])) 
@@ -125,7 +113,6 @@ class WorldTraj(object):
         for i in range(N-1):
             if T_start[i]<= t < T_start[i+1]:
                 traj_start_time = T_start[i]
-                # traj_end_time = T_start[i+1]
                 point = self.points[i,:]
                 I_i = I[i,:]
                 x_dot = v * I_i
