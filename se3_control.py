@@ -29,8 +29,6 @@ class SE3Control(object):
         self.inertia = np.diag(np.array([self.Ixx, self.Iyy, self.Izz])) # kg*m^2
         self.g = 9.81 # m/s^2
 
-        # STUDENT CODE HERE
-
         self.K_D = 0.7* np.array([[6.6, 0, 0],
                        [0, 6.5, 0],
                        [0, 0, 6]])
