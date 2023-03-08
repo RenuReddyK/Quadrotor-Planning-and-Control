@@ -22,9 +22,6 @@ def currentnode_neighbors(current_node_index,occ_map):
     neighbors_ind = occ_map.map[X, Y, Z]
     neighbors = neighbors[np.where(neighbors_ind == False)]
 
-    # for i in range(len(neighbors)):
-    #     if occ_map.map[neighbors[i,0],neighbors[i,1],neighbors[i,2]] == True:
-    #         np.delete(neighbors, i)
     return neighbors
 
 def cost(current_node_index, other):
@@ -97,8 +94,7 @@ def graph_search(world, resolution, margin, start, goal, astar):
                 total_cost_to_come = cost_to_come
             elif astar == True:
                 total_cost_to_come = cost_to_come + heuristic_cost_to_come
-            # print(neighbor)
-            # print(tuple(neighbor))
+
             def to_tuple(list):
                     return ( *list, )
             if total_cost_to_come < distance[to_tuple(neighbor)]: 
