@@ -24,8 +24,6 @@ from proj1_3.code.world_traj import WorldTraj
 # Improve figure display on high DPI screens.
 # mpl.rcParams['figure.dpi'] = 200
 
-
-# Choose a test example file. You should write your own example files too!
 # filename = '../util/test_renu.json'
 filename = '../util/test_maze.json'
 # filename = '../util/test_window.json'
@@ -41,30 +39,13 @@ goal   = world.world['goal']           # Goal point, shape=(3,)
 quadrotor = Quadrotor(quad_params)
 robot_radius = 0.25
 
-# Your SE3Control object (from project 1-1).
+# SE3Control object (from project 1-1)
 my_se3_control = SE3Control(quad_params)
 
-# Your MapTraj object. This behaves like the trajectory function you wrote in
-# project 1-1, except instead of giving it waypoints you give it the world,
-# start, and goal.
+# MapTraj object
 planning_start_time = time.time()
 my_world_traj = WorldTraj(world, start, goal)
 planning_end_time = time.time()
-
-# Help debug issues you may encounter with your choice of resolution and margin
-# by plotting the occupancy grid after inflation by margin. THIS IS VERY SLOW!!
-# fig = plt.figure('world')
-# ax = Axes3Ds(fig)
-# world.draw(ax)
-# fig = plt.figure('occupancy grid')
-# ax = Axes3Ds(fig)
-# resolution = SET YOUR RESOLUTION HERE
-# margin = SET YOUR MARGIN HERE
-# oc = OccupancyMap(world, resolution, margin)
-# oc.draw(ax)
-# ax.plot([start[0]], [start[1]], [start[2]], 'go', markersize=10, markeredgewidth=3, markerfacecolor='none')
-# ax.plot( [goal[0]],  [goal[1]],  [goal[2]], 'ro', markersize=10, markeredgewidth=3, markerfacecolor='none')
-# plt.show()
 
 # Set simulation parameters.
 t_final = 60
@@ -74,10 +55,7 @@ initial_state = {'x': start,
                  'w': (0, 0, 0)}
 
 # Perform simulation.
-#
-# This function performs the numerical simulation.  It returns arrays reporting
-# the quadrotor state, the control outputs calculated by your controller, and
-# the flat outputs calculated by you trajectory.
+# It returns arrays reporting the quadrotor state, the control outputs calculated by your controller, and the flat outputs calculated by the trajectory.
 
 print()
 print('Simulate.')
@@ -89,8 +67,6 @@ print('Simulate.')
 print(exit.value)
 
 # Print results.
-#
-# Only goal reached, collision test, and flight time are used for grading.
 
 collision_pts = world.path_collisions(state['x'], robot_radius)
 
@@ -112,9 +88,6 @@ if not no_collision:
     print(f"  The robot collided at location {collision_pts[0]}!")
 
 # Plot Results
-#
-# You will need to make plots to debug your quadrotor.
-# Here are some example of plots that may be useful.
 
 # Visualize the original dense path from A*, your sparse waypoints, and the
 # smooth trajectory.
@@ -218,10 +191,7 @@ ax.legend(handles=[
     loc='upper right')
 
 
-# Animation (Slow)
-#
-# Instead of viewing the animation live, you may provide a .mp4 filename to save.
-
+# Animation
 R = Rotation.from_quat(state['q']).as_matrix()
 ani = animate(sim_time, state['x'], R, world=world, filename=None)
 
