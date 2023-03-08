@@ -50,12 +50,6 @@ class OccupancyMap:
         range is conservatively small.
         """
 
-        # Implementation note: The original intended resolution may not be
-        # exactly representable as a floating point number. For example, the
-        # floating point value for "0.1" is actually bigger than 0.1. This can
-        # cause surprising results on large maps. The solution used here is to
-        # slightly inflate or deflate the resolution by the smallest
-        # representative unit to achieve either an upper or lower bound result.
         sign = 1 if outer_bound else -1
         min_index_res = np.nextafter(self.resolution,  sign * np.inf) # Use for lower corner.
         max_index_res = np.nextafter(self.resolution, -sign * np.inf) # Use for upper corner.
