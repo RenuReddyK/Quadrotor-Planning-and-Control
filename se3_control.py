@@ -8,14 +8,7 @@ class SE3Control(object):
     """
     def __init__(self, quad_params):
         """
-        This is the constructor for the SE3Control object. You may instead
-        initialize any parameters, control gain values, or private state here.
-
-        For grading purposes the controller is always initialized with one input
-        argument: the quadrotor's physical parameters. If you add any additional
-        input arguments for testing purposes, you must provide good default
-        values!
-
+ 
         Parameters:
             quad_params, dict with keys specified by crazyflie_params.py
 
@@ -61,8 +54,7 @@ class SE3Control(object):
 
     def update(self, t, state, flat_output):
         """
-        This function receives the current time, true state, and desired flat
-        outputs. It returns the command inputs.
+        This function receives the current time, true state, and desired flat outputs. It returns the command inputs.
 
         Inputs:
             t, present time in seconds
@@ -83,17 +75,14 @@ class SE3Control(object):
         Outputs:
             control_input, a dict describing the present computed control inputs with keys
                 cmd_motor_speeds, rad/s
-                cmd_thrust, N (for debugging and laboratory; not used by simulator)
-                cmd_moment, N*m (for debugging; not used by simulator)
-                cmd_q, quaternion [i,j,k,w] (for laboratory; not used by simulator)
+                cmd_thrust, N 
+                cmd_moment, N*m 
+                cmd_q, quaternion [i,j,k,w] 
         """
         cmd_motor_speeds = np.zeros((4,))
         cmd_thrust = 0
         cmd_moment = np.zeros((3,))
         cmd_q = np.zeros((4,))
-
-
-        # STUDENT CODE HERE
        
         self.xT = state['x']
         self.vT = state['v']
@@ -123,18 +112,6 @@ class SE3Control(object):
         a_yaw = np.array([[np.cos(self.yaw)], [np.sin(self.yaw)], [0]])
         b2_des = (np.cross(b3_des.T, a_yaw.T)/(np.linalg.norm(np.cross(b3_des.T, a_yaw.T)))).T
         R_des = np.hstack((np.cross(b2_des.T,b3_des.T).T, b2_des, b3_des))
-        print(R_des)
-        
-        
-        # tmp = Rotation.from_quat([[ 0.258819, 0, 0, 0.9659258 ]])
-        # R_des = tmp.as_matrix().reshape((3,3))
-        # r = tmp.as_euler('zyx', degrees=True)
-
-        # plt.plot(time,r)
-        # plt.show()
-
-        # plt.plot(time,r, time, np.ones((len(r[:,0]),1)),'r.')
-        # print(r)
         
         e_R_33 = np.subtract(np.matmul(R_des.T, R),np.matmul(R.T,R_des))
     
@@ -156,10 +133,7 @@ class SE3Control(object):
 
         F = np.zeros((4,1))
         F = np.linalg.inv(np.array([[1,1,1,1],[0, l, 0, -l],[-l, 0, l, 0],[gamma, -gamma, gamma,-gamma]])) @ U
-        # F[F<0] = 0
-        # F = np.sqrt(F)
-        # F = F.reshape((4,))
-        # F = np.abs(F)
+   
         cmd_motor_speeds = np.sign(F) * np.sqrt(np.absolute(F)/self.k_thrust)
         cmd_motor_speeds = np.clip(cmd_motor_speeds, self.rotor_speed_min, self.rotor_speed_max)
 
