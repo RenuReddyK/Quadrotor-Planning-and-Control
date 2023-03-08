@@ -53,9 +53,7 @@ class WaypointTraj(object):
         yaw_dot = 0
 
         T_start = np.zeros((self.N,))
-
-        # STUDENT CODE HERE
-        v = 1
+        v = 3.1
         traj_start_time = 0
         T_start = np.zeros((self.N,1))
 
@@ -93,7 +91,6 @@ class WaypointTraj(object):
             x = (point + (v*I_i)*(t-traj_start_time)).reshape((3,))
             x_dot = v * I_i
     
-        
         # The yaw, yaw rate, acceleration, jerk, and snap will be 0
         # i.e.,  x_ddot = x_dddot = x_ddddot =0 anf yaw, yaw_dot are also 0
 
