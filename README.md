@@ -2,7 +2,7 @@
 Autonomously controlled a CrazyFlie 2.0 through a 3D environment with obstacles. 
 Developed a geometric nonlinear controller and implemented constant speed trajectory. Implemented two graph search algorithms: Dijkstra’s algorithm and A*
 
-Map 1: Maze
+# Map 1: Maze
 |![1](https://user-images.githubusercontent.com/68454938/223790594-39cf6b09-594a-4c5c-aca1-1b4c291b5cb7.png)
 |:--:| 
 | *Map 1* |
@@ -16,7 +16,7 @@ Map 1: Maze
 | *Position vs Time*|
 
 
-Map 2: Over under
+# Map 2: Over under
 
 |![3D_Path](https://user-images.githubusercontent.com/68454938/223794198-c38b119d-b303-4dde-9edd-3a9c1fa4e6fa.png)
 |:--:| 
@@ -30,8 +30,7 @@ Map 2: Over under
 |:--:| 
 | *Position vs Time*|
 
-Map 3: Window
-
+# Map 3: Window
 
 |![3D_Path](https://user-images.githubusercontent.com/68454938/223791183-a3ce0eef-f36e-42e9-99fc-529168772de2.png)
 |:--:|
